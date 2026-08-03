@@ -1,0 +1,112 @@
+<section id="about" class="about-section py-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="display-5 fw-bold mb-3">
+        About <span class="gradient-text">Me</span>
+      </h2>
+      <p class="text-accent max-w-lg mx-auto">
+        Get to know the person behind the code
+      </p>
+    </div>
+
+    <div class="row align-items-center g-5">
+      <!-- Image Column -->
+      <div class="col-lg-6 reveal">
+        <div class="position-relative">
+          <div class="about-image-container rounded-4 overflow-hidden shadow-lg">
+            <img
+              src="Shubh_image.jpeg"
+              alt="Shubham Sonawane"
+              class="img-fluid w-100"
+            />
+            <div class="image-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+          </div>
+          
+          <!-- Experience Badge -->
+          <div class="experience-badge position-absolute bottom-0 end-0 bg-gradient-to-r from-primary to-purple text-white p-4 rounded-4 shadow-lg">
+            <div class="display-6 fw-bold">5+</div>
+            <div class="fs-6 opacity-90">Years Experience</div>
+          </div>
+
+          <!-- Floating Elements -->
+          <div class="floating-element floating-1 position-absolute top-0 start-0 translate-middle bg-card rounded-3 p-3 shadow">
+            <i class="fas fa-code text-primary fs-4"></i>
+          </div>
+          <div class="floating-element floating-2 position-absolute top-50 end-0 translate-middle-y bg-card rounded-3 p-3 shadow">
+            <i class="fas fa-rocket text-purple fs-4"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-lg-6 reveal" style="animation-delay: 0.2s">
+        <h3 class="fw-bold mb-4 display-6">
+          Professional Summary
+        </h3>
+        
+        <div class="about-content mb-4">
+          <p class="text-secondary fs-5 mb-3">
+            I am a dedicated Full Stack Developer with a strong foundation in Java
+            and modern web technologies. With over 5 years of experience, I've
+            contributed to various projects ranging from small startups to
+            enterprise-level applications.
+          </p>
+          <p class="text-secondary fs-5 mb-4">
+            My journey began with a curiosity for building things, and now I
+            specialize in creating robust backend systems with Java/Spring Boot
+            and dynamic frontends with Angular and React.
+          </p>
+        </div>
+
+        <!-- Key Points -->
+        <div class="key-points mb-5">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="key-point-icon d-flex align-items-center justify-content-center rounded-circle">
+              <i class="fas fa-check text-white"></i>
+            </div>
+            <span class="text-secondary fs-5">
+              Built 20+ successful web applications
+            </span>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="key-point-icon d-flex align-items-center justify-content-center rounded-circle">
+              <i class="fas fa-check text-white"></i>
+            </div>
+            <span class="text-secondary fs-5">
+              Worked with Fortune 500 companies
+            </span>
+          </div>
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="key-point-icon d-flex align-items-center justify-content-center rounded-circle">
+              <i class="fas fa-check text-white"></i>
+            </div>
+            <span class="text-secondary fs-5">
+              Led team of 5 developers
+            </span>
+          </div>
+        </div>
+
+        <!-- Technologies -->
+        <div class="technologies-section">
+          <h4 class="fw-semibold mb-3 fs-4">
+            Technologies I Work With:
+          </h4>
+          <div class="d-flex flex-wrap gap-2">
+            @for (tech of techStack; track tech) {
+              <span class="tech-badge px-3 py-2 rounded-pill">
+                {{ tech }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="mt-5 pt-3">
+          <a href="#contact" class="btn btn-custom btn-lg d-inline-flex align-items-center">
+            <i class="fas fa-paper-plane me-2"></i>Let's Work Together
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

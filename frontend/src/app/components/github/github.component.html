@@ -1,0 +1,51 @@
+<section id="github" class="section-padding bg-slate-50 dark:bg-slate-900">
+  <div class="container-custom">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">
+        GitHub <span class="gradient-text">Stats</span>
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        My open source contributions and activity
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div class="card text-center reveal">
+        <div class="text-3xl font-bold gradient-text mb-2">48</div>
+        <div class="text-slate-600 dark:text-slate-400">Repositories</div>
+      </div>
+      <div class="card text-center reveal">
+        <div class="text-3xl font-bold gradient-text mb-2">892</div>
+        <div class="text-slate-600 dark:text-slate-400">Followers</div>
+      </div>
+      <div class="card text-center reveal">
+        <div class="text-3xl font-bold gradient-text mb-2">1,247</div>
+        <div class="text-slate-600 dark:text-slate-400">Contributions</div>
+      </div>
+      <div class="card text-center reveal">
+        <div class="text-3xl font-bold gradient-text mb-2">156</div>
+        <div class="text-slate-600 dark:text-slate-400">Following</div>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      @for (repo of repos; track repo.name) {
+        <a [href]="repo.url" target="_blank" class="card hover:border-indigo-500 dark:hover:border-indigo-400 transition-all reveal group">
+          <div class="flex items-center justify-between mb-3">
+            <i class="fa-brands fa-github text-2xl text-slate-400 dark:text-slate-500 group-hover:text-indigo-500"></i>
+            <div class="flex gap-3 text-sm text-slate-500 dark:text-slate-400">
+              <span><i class="fa-regular fa-star mr-1"></i>{{ repo.stars }}</span>
+              <span><i class="fa-solid fa-code-branch mr-1"></i>{{ repo.forks }}</span>
+            </div>
+          </div>
+          <h3 class="font-bold mb-2 group-hover:text-indigo-500 dark:group-hover:text-indigo-400">{{ repo.name }}</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-3">{{ repo.description }}</p>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full" [style.background-color]="repo.color"></span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">{{ repo.language }}</span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

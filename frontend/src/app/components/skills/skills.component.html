@@ -1,0 +1,75 @@
+<section id="skills" class="skills-section py-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="display-5 fw-bold mb-3">
+        My <span class="gradient-text">Skills</span>
+      </h2>
+      <p class="text-accent max-w-lg mx-auto">
+        Technologies and tools I use to bring ideas to life
+      </p>
+    </div>
+
+    <div class="row g-4">
+      @for (category of skillCategories; track category.name; let i = $index) {
+        <div class="col-lg-3 col-md-6 reveal" [style.animation-delay]="(i * 0.1) + 's'">
+          <div class="skill-card card border-0 h-100 shadow-lg">
+            <div class="card-body p-4">
+              <!-- Category Header -->
+              <div class="text-center mb-4">
+                <div class="category-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle">
+                  <i [class]="category.icon + ' fs-3'"></i>
+                </div>
+                <h3 class="fw-bold mb-0">{{ category.name }}</h3>
+              </div>
+
+              <!-- Skills List -->
+              <div class="skills-list">
+                @for (skill of category.skills; track skill.name) {
+                  <div class="skill-item mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <div class="d-flex align-items-center gap-2">
+                        <div class="skill-icon d-flex align-items-center justify-content-center rounded-circle">
+                          <i [class]="skill.icon"></i>
+                        </div>
+                        <span class="skill-name fw-medium">{{ skill.name }}</span>
+                      </div>
+                      <span class="skill-percentage text-primary fw-bold">{{ skill.level }}%</span>
+                    </div>
+                    <div class="progress skill-progress" style="height: 6px;">
+                      <div 
+                        class="progress-bar" 
+                        role="progressbar" 
+                        [style.width.%]="skill.level"
+                        [attr.aria-valuenow]="skill.level" 
+                        aria-valuemin="0" 
+                        aria-valuemax="100">
+                      </div>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Additional Skills Section -->
+    <div class="row mt-5 pt-4">
+      <div class="col-12">
+        <div class="additional-skills card border-0 shadow-lg">
+          <div class="card-body p-4">
+            <h4 class="fw-bold mb-4 text-center">Additional Skills & Tools</h4>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              @for (skill of additionalSkills; track skill) {
+                <span class="skill-tag px-3 py-2 rounded-pill">
+                  <i class="fas fa-check-circle me-2"></i>{{ skill }}
+                </span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

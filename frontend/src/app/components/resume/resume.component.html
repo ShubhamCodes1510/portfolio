@@ -1,0 +1,87 @@
+<section id="resume" class="section-padding">
+  <div class="container-custom">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl font-bold font-display mb-4">
+        My <span class="gradient-text">Resume</span>
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        My professional journey and experience
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-xl font-bold font-display mb-6">Work Experience</h3>
+        <div class="space-y-6">
+          @for (exp of experiences; track exp.id) {
+            <div class="resume-card reveal">
+              <div class="resume-timeline">
+                <div class="resume-dot"></div>
+                <div class="resume-line"></div>
+              </div>
+              <div class="resume-content card">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="font-bold text-lg">{{ exp.role }}</h4>
+                  <span class="text-sm bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full whitespace-nowrap">
+                    {{ formatDate(exp.startDate) }} - {{ exp.endDate ? formatDate(exp.endDate) : 'Present' }}
+                  </span>
+                </div>
+                <p class="text-indigo-500 font-medium mb-2">{{ exp.company }}</p>
+                @if (exp.location) {
+                  <p class="text-slate-400 dark:text-slate-500 text-sm mb-3"><i class="fa-solid fa-location-dot mr-1"></i>{{ exp.location }}</p>
+                }
+                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{{ exp.description }}</p>
+              </div>
+            </div>
+          } @empty {
+            <div class="card text-center py-8">
+              <p class="text-slate-500">No experience added yet</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold font-display mb-6">Education</h3>
+        <div class="space-y-6">
+          @for (edu of education; track edu.id) {
+            <div class="resume-card reveal">
+              <div class="resume-timeline">
+                <div class="resume-dot bg-violet-500"></div>
+                <div class="resume-line"></div>
+              </div>
+              <div class="resume-content card">
+                <div class="flex justify-between items-start mb-2 flex-wrap gap-2">
+                  <h4 class="font-bold text-lg">{{ edu.degree }}</h4>
+                  <span class="text-sm bg-violet-100 dark:bg-violet-900 text-violet-600 dark:text-violet-300 px-3 py-1 rounded-full whitespace-nowrap">
+                    {{ edu.startDate ? formatDate(edu.startDate) : '' }} - {{ edu.endDate ? formatDate(edu.endDate) : 'Present' }}
+                  </span>
+                </div>
+                <p class="text-violet-500 font-medium mb-2">{{ edu.school }}</p>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">{{ edu.field }}</p>
+                @if (edu.description) {
+                  <p class="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed border-t border-slate-200 dark:border-slate-700 pt-3">
+                    {{ edu.description }}
+                  </p>
+                }
+              </div>
+            </div>
+          } @empty {
+            <div class="card text-center py-8">
+              <p class="text-slate-500">No education added yet</p>
+            </div>
+          }
+        </div>
+
+        <div class="mt-8 bg-gradient-to-br from-indigo-500/10 to-violet-500/10 p-8 rounded-2xl border border-indigo-500/30 text-center reveal">
+          <i class="fa-solid fa-file-pdf text-4xl gradient-text mb-4"></i>
+          <h4 class="font-bold text-lg mb-2">Download Resume</h4>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Get the full version with complete details</p>
+          <button class="btn-primary">
+            <i class="fa-solid fa-download mr-2"></i>Download PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

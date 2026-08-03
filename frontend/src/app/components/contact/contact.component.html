@@ -1,0 +1,161 @@
+<section id="contact" class="contact-section py-5">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <h2 class="display-5 fw-bold mb-3">
+        Get In <span class="gradient-text">Touch</span>
+      </h2>
+      <p class="text-secondary fs-5 max-w-lg mx-auto">
+        Have a project in mind or just want to say hello? Feel free to reach out!
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <!-- Contact Form -->
+      <div class="col-lg-6 reveal">
+        <div class="contact-form-card card border-0 shadow-lg h-100">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="h3 fw-bold mb-4">Send a Message</h3>
+
+            @if (submitted()) {
+              <div class="success-message text-center p-5 rounded-4">
+                <div class="success-icon mb-4">
+                  <i class="fa-solid fa-check-circle text-success display-1"></i>
+                </div>
+                <h4 class="h4 fw-bold text-success mb-3">Message Sent Successfully!</h4>
+                <p class="text-secondary mb-0">
+                  Thank you for reaching out. I'll get back to you within 24 hours.
+                </p>
+              </div>
+            } @else {
+              <form (ngSubmit)="submitForm()" class="contact-form">
+                <div class="mb-4">
+                  <label for="name" class="form-label fw-medium">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    [(ngModel)]="formData.name"
+                    name="name"
+                    class="form-control form-control-lg"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label for="email" class="form-label fw-medium">Email Address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    [(ngModel)]="formData.email"
+                    name="email"
+                    class="form-control form-control-lg"
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+
+                <div class="mb-4">
+                  <label for="message" class="form-label fw-medium">Your Message</label>
+                  <textarea
+                    id="message"
+                    [(ngModel)]="formData.message"
+                    name="message"
+                    rows="5"
+                    class="form-control form-control-lg"
+                    placeholder="Tell me about your project or inquiry..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit" 
+                  class="btn btn-primary btn-custom w-100 py-3"
+                  [disabled]="loading()"
+                >
+                  @if (loading()) {
+                    <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                    Sending...
+                  } @else {
+                    <i class="fa-solid fa-paper-plane me-2"></i>
+                    Send Message
+                  }
+                </button>
+              </form>
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-lg-6">
+        <div class="contact-info-card card border-0 shadow-lg h-100 mb-4 reveal" style="animation-delay: 0.1s">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="h3 fw-bold mb-4">Contact Information</h3>
+            
+            <div class="contact-info-list">
+              @for (info of contactInfo; track info.title) {
+                <div class="contact-info-item d-flex align-items-center gap-4 p-4 mb-3 rounded-4">
+                  <div class="contact-icon d-flex align-items-center justify-content-center rounded-4" 
+                       [class]="'bg-gradient-to-r ' + info.color">
+                    <i [class]="info.icon + ' text-white fs-4'"></i>
+                  </div>
+                  <div class="contact-details flex-grow-1">
+                    <p class="text-secondary mb-1 small">{{ info.title }}</p>
+                    @if (info.link) {
+                      <a [href]="info.link" class="h5 fw-bold mb-0 text-decoration-none">
+                        {{ info.value }}
+                      </a>
+                    } @else {
+                      <p class="h5 fw-bold mb-0">{{ info.value }}</p>
+                    }
+                  </div>
+                </div>
+              }
+            </div>
+
+            <div class="mt-5 pt-3">
+              <h4 class="h4 fw-bold mb-4">Connect With Me</h4>
+              <div class="d-flex flex-wrap gap-3">
+                @for (social of socials; track social.name) {
+                  <a 
+                    [href]="social.url" 
+                    target="_blank"
+                    class="social-btn d-flex align-items-center justify-content-center rounded-4 text-decoration-none"
+                    [class]="social.color + ' text-white'"
+                    [title]="social.name"
+                  >
+                    <i [class]="social.icon + ' fs-5'"></i>
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Note -->
+        <div class="availability-note card border-0 shadow-lg reveal" style="animation-delay: 0.2s">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center gap-3">
+              <div class="availability-indicator">
+                <div class="status-dot bg-success"></div>
+              </div>
+              <div>
+                <h5 class="h6 fw-bold mb-1">Currently Available</h5>
+                <p class="text-secondary small mb-0">
+                  I'm open to new opportunities and collaborations. Response time: within 24 hours.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Note -->
+    <div class="text-center mt-5 pt-4">
+      <p class="text-secondary mb-0">
+        © {{ currentYear }} Shubham Sonawane. All rights reserved.
+      </p>
+    </div>
+  </div>
+</section>

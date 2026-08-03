@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg" data-bs-theme="dark" [class.scrolled]="isScrolled()">
+  <div class="container">
+    <!-- Brand/Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-3" href="#home">
+      <div class="logo-container d-flex align-items-center justify-content-center rounded-3 bg-gradient-to-br from-primary to-purple">
+        <span class="text-white fw-bold fs-5">SS</span>
+      </div>
+      <div class="d-none d-sm-block">
+        <span class="gradient-text fw-bold fs-4">Portfolio</span>
+        <div class="text-accent fs-6 fw-medium">Developer</div>
+      </div>
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler btn-custom" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <div class="collapse navbar-collapse" [class.show]="mobileMenuOpen()">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        @for (link of navLinks; track link.href) {
+          <li class="nav-item mx-1">
+            <a 
+              [href]="link.href" 
+              class="nav-link position-relative px-4 py-2 rounded-pill text-center"
+              (click)="mobileMenuOpen.set(false)"
+            >
+              <span class="nav-link-text">{{ link.label }}</span>
+              <span class="nav-link-hover"></span>
+              @if (link.label === 'Admin') {
+                <span class="admin-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span class="visually-hidden">Admin</span>
+                </span>
+              }
+            </a>
+          </li>
+        }
+      </ul>
+
+    </div>
+  </div>
+</nav>
